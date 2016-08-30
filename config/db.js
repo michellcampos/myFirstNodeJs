@@ -5,9 +5,7 @@ var connection = mysql.createConnection({
     password : 'root',
     database : 'gorunner'
 });
-
 connection.connect(function(err) {
     if (err) throw err;
 });
-
 module.exports = connection;
