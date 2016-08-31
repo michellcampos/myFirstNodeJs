@@ -10,7 +10,7 @@ html
         .login.well
             h1  Create user
             hr
-            form(id='register-form', method='POST', action='/register' novalidate)
+            form(id='register-form', method='POST', action='/user/register' novalidate)
                 .form-group
                     label(for='firstname') First Name
                     input(type='text', name='firstname', class='form-control',
@@ -35,7 +35,8 @@ html
                 .form-group
                     label(for='taxvat') Taxvat
                     input(type='text', name='taxvat', class='form-control',
-                    id='taxvat', placeholder='Enter Taxvat',
+                    id='taxvat', placeholder='Ex: 000.000.000-00', maxlength="14"
+                    pattern="(\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2})"
                     required, data-required-msg='Taxvat is required'
                     data-available data-available-url="validate/taxvat"
                     data-available-msg="There is already an account associated with this taxvat")
