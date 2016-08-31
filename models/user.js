@@ -27,3 +27,12 @@ exports.checkUserExist = function (user, callback) {
         callback(null, result);
     });
 };
+
+exports.createUser = function(data, callback) { 
+    db.query("INSERT INTO user(firstname, lastname, gender, birthdate, " +
+        "taxvat, email, username, password, status, created_at, updated_at) " +
+        "VALUES(?, ?, ?, ?, ?, ?, ?, MD5(?), 'active', NOW(), NOW())", data, function (err, result) {
+        if(err) throw err;
+        callback(null, result);
+    });
+};
